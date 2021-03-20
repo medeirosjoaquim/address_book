@@ -7,15 +7,12 @@ const UsersList = () => {
   if (!res.response) {
     return <div>Loading...</div>;
   }
-  const dogName = res.response.status;
   const imageUrl = res.response.message;
-
   return (
     <div>
       <div>
-        <h3>{dogName}</h3>
         <div>
-          <img src={imageUrl} alt="avatar" />
+          <img height='300' src={imageUrl} alt="avatar" />
         </div>
       </div>
     </div>

@@ -1,1 +1,1 @@
-export const baseUrl = 'https://randomuser.me/api/?seed=sherpany&results=25'
+export const baseUrl = 'https://randomuser.me/api/?seed=sherpany&results=25';

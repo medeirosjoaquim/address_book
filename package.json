@@ -45,6 +45,7 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "jest": "^26.6.3",
     "prettier": "^2.2.1",
+    "prettier-airbnb-config": "^1.0.0",
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
     "ts-jest": "^26.5.4"

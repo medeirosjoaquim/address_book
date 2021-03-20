@@ -1,0 +1,26 @@
+@import "../../assets/styles/breakpoints.scss";
+@import "../../assets/styles/colors.scss";
+
+.navbar {
+    &--container {
+        height: 15%;
+        background-color:  $base-light;
+    }
+}
+
+
+@include breakpoint(desktop) {
+    .application {
+        &--container {
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            top: 5%;
+            left: 0;
+            right: 0;
+            height: 90%;
+            width: 80%;
+            background-color: $base-dark;
+        }
+    }
+}

@@ -1,5 +1,5 @@
-@import './assets/styles/breakpoints.scss';
-@import './assets/styles/colors.scss';
+@import "./assets/styles/breakpoints.scss";
+@import "./assets/styles/colors.scss";
 
 .application {
     &--container {
@@ -11,24 +11,21 @@
         right: 0;
         height: 90%;
         width: 90%;
-        background-color: $base-dark;
-        padding: 0 2rem;
+        background-color: $base-white;
     }
 }
 
 @include breakpoint(desktop) {
-  .application {
-    &--container {
-        position: absolute;
-        margin-left: auto;
-        margin-right: auto;
-        top: 5%;
-        left: 0;
-        right: 0;
-        height: 90%;
-        width: 80%;
-        background-color: $base-dark;
-        padding: 4rem;
+    .application {
+        &--container {
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            top: 5%;
+            left: 0;
+            right: 0;
+            height: 90%;
+            width: 80%;
+        }
     }
-}
 }

@@ -1,22 +1,22 @@
 import React from 'react';
 import './users-list.scss';
 import {useFetch} from '../../hooks/useFetch';
+import { baseUrl } from '../../consts/baseUrl';
 
 const UsersList = () => {
-  const res = useFetch('https://dog.ceo/api/breeds/image/random', {});
-  if (!res.response) {
+
+  const res = useFetch(baseUrl, {});
+  
+  if (res?.isLoading) {
     return <div>Loading...</div>;
-  }
-  const imageUrl = res.response.message;
-  return (
-    <div>
+  } else {
+    console.log(res);
+    return (
       <div>
-        <div>
-          <img height='300' src={imageUrl} alt="avatar" />
-        </div>
+            {/* <img height='300' src={imageUrl} alt="avatar" /> */}
       </div>
-    </div>
-  );
+    );  
+  }
 };
 
 export default UsersList;

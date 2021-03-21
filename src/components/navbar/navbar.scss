@@ -5,6 +5,16 @@
   &--container {
     padding: 0.5rem;
     background-color: $base-dark;
+    &-settings-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 5%;
+      margin: 0.25rem;
+      font-size: 2rem;
+      color: $light-blue;
+      cursor: pointer;
+    }
   }
 }
 

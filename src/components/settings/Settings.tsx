@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { MainContext } from '../../context/app.context';
 
-import {FaBeer} from 'react-icons/fa';
+
 
 const Settings = () => {
+  const [appContext, setAppContext] = useContext(MainContext)
   return (
-    <div className="column">
-      settings works <FaBeer />
+    <div style={{
+      background: 'green',
+      height: '8rem', 
+      position: 'absolute', 
+      display: appContext.showSettings ? 'block' : 'none'}} 
+    className="settings--container">
+      settings works <pre>{JSON.stringify(appContext.showSettings)}</pre>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { MainContext } from '../../context/app.context';
-
+import './settings.scss'
 
 
 const Settings = () => {
@@ -23,25 +23,17 @@ const Settings = () => {
 
   return (
     <div style={{
-      background: '#3e3e3e',
-      height: '16rem', 
-      width: '14rem', 
-      position: 'absolute', 
-      top: 48,
-      right: 40,
-      padding: '1rem',
-      borderRadius: 5,
-      opacity: 0.9,
-      zIndex: 10,
       display: appContext.showSettings ? 'block' : 'none'}} 
     className="settings--container">
-      <div>choose </div>
+      <span className="settings--container-title">Settings</span>
+      <div className="settings--container-nationalities">
       {nationalities.map( key => 
-        <div key={key}>
-        <input type="checkbox" onChange={e => handleCheckbox(key, e.target.checked)} defaultChecked={false}/>  
+        <div className="nationality-checkbox" key={key}>
+        <input style={{marginRight: 12}} type="checkbox" onChange={e => handleCheckbox(key, e.target.checked)} defaultChecked={false}/>  
         <span>{key}</span>
         </div>
       )}
+      </div>
     </div>
   );
 };

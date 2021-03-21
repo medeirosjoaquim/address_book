@@ -20,9 +20,10 @@
   
 }
 
-@include breakpoint(desktop) {
+@include breakpoint(tablet) {
   .user-row {
     &--container {
+      min-width: 45%;
     }
   }
 }

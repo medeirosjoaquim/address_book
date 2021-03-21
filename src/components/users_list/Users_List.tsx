@@ -4,6 +4,7 @@ import { useFetch } from '../../hooks/useFetch';
 import { baseUrl } from '../../consts/baseUrl';
 import { IUser } from '../../models/user.model';
 import UserRow from '../user-row/user-row';
+
 // TODO: use react-virtualized to render list
 
 const UsersList = () => {
@@ -15,6 +16,7 @@ const UsersList = () => {
     if (status === 'fetched') {
       return (
         <div className="users-list--container">
+
           {/* <span>{status}</span> */}
           {data.results.map((user) => 
             <UserRow key={user.login.uuid}

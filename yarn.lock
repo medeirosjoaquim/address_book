@@ -6640,6 +6640,15 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
 
+react-scroll-progress-bar@^1.1.13:
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/react-scroll-progress-bar/-/react-scroll-progress-bar-1.1.13.tgz#6c48ff2436dec6b905febe378fdea6f55fb6cf41"
+  integrity sha512-MuC/DujwU5YNVXUfjdPfdKnjwHfxUjA6VAUgdP2qIO4CmsLss47Qz+ZEjb2UL4IHHGB5R/cw+L5Zs4VN6bLmmA==
+  dependencies:
+    prop-types "^15.7.2"
+    react "^17.0.1"
+    react-dom "^17.0.1"
+
 react-side-effect@^2.1.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-2.1.1.tgz#66c5701c3e7560ab4822a4ee2742dee215d72eb3"

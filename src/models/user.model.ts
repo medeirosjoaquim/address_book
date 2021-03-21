@@ -61,16 +61,16 @@ export interface Picture {
 }
 
 export interface IUser {
-  gender: string;
-  name: Name;
-  location: Location;
-  email: string;
-  login: Login;
-  dob: Dob;
-  registered: Registered;
-  phone: string;
-  cell: string;
-  id: Id;
+  gender?: string;
+  name?: Name;
+  location?: Location;
+  email?: string;
+  login?: Login;
+  dob?: Dob;
+  registered?: Registered;
+  phone?: string;
+  cell?: string;
+  id?: Id;
   picture: Picture;
-  nat: string;
+  nat?: string;
 }

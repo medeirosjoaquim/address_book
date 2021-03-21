@@ -1,0 +1,7 @@
+.users-list {
+  &--container {
+    border: 1px solid red;
+    overflow:scroll;
+    height: 90%;
+  }
+}

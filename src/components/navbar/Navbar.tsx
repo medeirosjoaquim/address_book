@@ -1,12 +1,12 @@
 import React from 'react';
-import SearchInput from '../search_input/Search_Input';
+import SearchComponent from '../search_component/Search_Component';
 import Settings from '../settings/Settings';
 import './navbar.scss';
 const Navbar = () => {
   return (
     <div className="navbar--container row">
-      <SearchInput />
-      <Settings/>
+      <SearchComponent />
+      <Settings />
     </div>
   );
 };

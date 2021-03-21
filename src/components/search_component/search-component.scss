@@ -1,0 +1,35 @@
+@import "../../assets/styles/breakpoints.scss";
+@import "../../assets/styles/colors.scss";
+
+.search-component {
+  &--container {
+    input {
+      font-size: 1rem;
+    }
+    .input-field {
+      width: 50%;
+      #search-input {
+        padding: 0.15rem;
+        border: 0;
+        width: 100%;
+        height: 3rem;
+        background: #fff;
+        vertical-align: bottom;
+        color: #999;
+        text-transform: uppercase;
+        &:focus {
+          background: #eee;
+          outline-width: 0;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(desktop) {
+  &--container {
+    #search-input {
+      padding: 0.15rem;
+    }
+  }
+}

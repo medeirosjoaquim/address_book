@@ -1,14 +1,12 @@
-@import "../../assets/styles/breakpoints.scss";
 @import "../../assets/styles/colors.scss";
+@import "../../assets/styles/breakpoints.scss";
 
 .navbar {
-    &--container {
-        background-color:  $base-light;
-    }
+  &--container {
+    background-color: $base-dark;
+  }
 }
 
-
-//@include breakpoint(desktop) {
-//    &--container {
-//    }
-//}
+@include breakpoint(tablet) {
+  //
+}

@@ -1,22 +1,24 @@
 import React from 'react';
 import {IUser} from '../../models/user.model';
 import './user-row.scss';
-const UserRow = ({name: {first, last}, location, picture}: IUser) => {
+const UserRow = ({name: {first, last}, location, picture, email}: IUser) => {
   return (
     <div className="user-row--container flex-grid">
-      {/* <span>{first}</span>
-        <span>{location.city}</span> */}
-      <div className="col-1">
-        <img className="avatar" src={picture.thumbnail} alt="" />
+      <div className="col-1 avatar">
+        <img src={picture.thumbnail} alt="" />
       </div>
-      <div className="col-2">
+      <div className="col-2 user-row--container-info">
         <div className="name--info">
-          <span>{first + ' ' + last}</span>
+          <span>{first + ' ' + last + ' - '}</span>
+          <span>{email}</span>
         </div>
         <div className="location--info">
-          <span>
+          <div>
             {location.city} - {location.country}
-          </span>
+          </div>
+          <div>
+            {location.street.name}, {location.street.number}
+          </div>
         </div>
       </div>
     </div>

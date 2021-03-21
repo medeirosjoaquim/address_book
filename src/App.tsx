@@ -8,7 +8,7 @@ import Settings from './components/settings/Settings';
 export default function App() {
   const [appContext, setAppContext] = useState({showSettings: false,
     filterNationality: [], 
-    searchKey: '', 
+    searchKey: 'name', 
     searchText: ''})
 
   return (

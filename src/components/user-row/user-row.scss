@@ -11,10 +11,21 @@
     border-radius: 0.25rem;
     color: $primary;
     align-items: center;
-    height: 4rem;
+    height: 4.75rem;
     margin: 0.25rem;
     .avatar {
-      border-radius: 50%;
+      // margin-top: 1rem;
+      // margin-right: 0.5rem;
+      // max-width: 3.25rem;
+      img {
+        border-radius: 50%;
+      }
+    }
+    &-info { 
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: center;
     }
   }
 }
@@ -22,7 +33,7 @@
 @include breakpoint(tablet) {
   .user-row {
     &--container {
-      min-width: 48%;
+      width: 48%;
     }
   }
 }

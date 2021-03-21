@@ -6,7 +6,10 @@ import { MainContext } from './context/app.context';
 import './App.scss';
 import Settings from './components/settings/Settings';
 export default function App() {
-  const [appContext, setAppContext] = useState({ showSettings: false, filterNationality: [] })
+  const [appContext, setAppContext] = useState({showSettings: false,
+    filterNationality: [], 
+    searchKey: '', 
+    searchText: ''})
 
   return (
     <MainContext.Provider value={[appContext, setAppContext]}>

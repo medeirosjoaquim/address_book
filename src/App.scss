@@ -1,0 +1,31 @@
+@import "./assets/styles/breakpoints.scss";
+@import "./assets/styles/colors.scss";
+
+.application {
+    &--container {
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        top: 5%;
+        left: 0;
+        right: 0;
+        height: 90%;
+        width: 90%;
+        overflow: hidden;
+    }
+}
+
+@include breakpoint(desktop) {
+    .application {
+        &--container {
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            top: 5%;
+            left: 0;
+            right: 0;
+            height: 90%;
+            width: 80%;
+        }
+    }
+}

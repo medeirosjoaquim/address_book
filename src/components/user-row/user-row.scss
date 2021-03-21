@@ -1,0 +1,29 @@
+@import "../../assets/styles/breakpoints.scss";
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/layout.scss";
+
+.user-row {
+  &--container {
+    display: flex;
+    margin-bottom: 1rem;
+    background-color: #DBEAFE;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    color: $primary;
+    align-items: center;
+    height: 4rem;
+    margin: 0.25rem;
+    .avatar {
+      border-radius: 50%;
+    }
+  }
+  
+}
+
+@include breakpoint(tablet) {
+  .user-row {
+    &--container {
+      min-width: 45%;
+    }
+  }
+}

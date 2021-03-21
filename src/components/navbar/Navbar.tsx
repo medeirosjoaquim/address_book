@@ -12,7 +12,7 @@ const Navbar = () => {
       <SearchComponent />
       <div className="navbar--container-settings-btn"
         onClick={() => setAppContext({...appContext, showSettings: !appContext.showSettings})}
-      ><FaCog /></div>
+      ><FaCog style={{color: !appContext.showSettings ? '#99cbeb' : '#bf1140'}}/></div>
     </div>
   );
 };

@@ -6,20 +6,20 @@ import { Lang, MainContext } from './context/app.context';
 import './App.scss';
 import Settings from './components/settings/Settings';
 export default function App() {
-  const [appContext, setAppContext] = useState({showSettings: false, filterLanguage: Lang.NONE})
+  const [appContext, setAppContext] = useState({ showSettings: false, filterLanguage: Lang.NONE })
 
   return (
-    <div className="application--container">
-      <MainContext.Provider value={[appContext, setAppContext]}>
+    <MainContext.Provider value={[appContext, setAppContext]}>
+      <div className="application--container">
         <Helmet>
           <meta charSet="utf-8" />
           <title>Address book</title>
           <link rel="canonical" href="https://addressbook-jb.herokuapp.com" />
         </Helmet>
-        <Settings/>
+        <Settings />
         <Navbar />
         <UsersList />
-      </MainContext.Provider>
-    </div>
+      </div>
+    </MainContext.Provider>
   );
 }

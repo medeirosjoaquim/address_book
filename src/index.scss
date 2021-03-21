@@ -32,14 +32,14 @@
 /* Works on Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: $ruby $base-white;
+  scrollbar-color: $primary $base-white;
 }
 
 // with reference from: https://www.digitalocean.com/community/tutorials/css-scrollbars
 
 /* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 
 *::-webkit-scrollbar-track {
@@ -47,7 +47,7 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: $ruby;
+  background-color: $primary;
   border-radius: 20px;
   border: 3px solid $base-white;
 }

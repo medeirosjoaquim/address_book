@@ -17,13 +17,12 @@
       border-radius: 50%;
     }
   }
-  
 }
 
 @include breakpoint(tablet) {
   .user-row {
     &--container {
-      min-width: 45%;
+      min-width: 48%;
     }
   }
 }

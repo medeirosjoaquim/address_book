@@ -1,7 +1,9 @@
+@import "../../assets/styles/colors.scss";
+
 .users-list {
   &--container {
-    border: 1px solid red;
-    overflow:scroll;
+    background-color: $app-gray-light;
+    overflow-y:scroll;
     height: 90%;
   }
 }

@@ -4,14 +4,14 @@ import { useFetch } from '../../hooks/useFetch';
 import { baseUrl } from '../../consts/baseUrl';
 import { IUser } from '../../models/user.model';
 import UserRow from '../user-row/user-row';
-
 // TODO: use react-virtualized to render list
 
 const UsersList = () => {
 
-  const { status, data, error } = useFetch<{info: {}, results: IUser[]}>(baseUrl())  
-
- console.log(status, data, error)
+  //TODO get nat from state
+  const { status, data } = 
+    useFetch<{info: {}, results: IUser[]}>(baseUrl(), {params: { nat: '' }})  
+    
     if (status === 'fetched') {
       return (
         <div className="users-list--container">

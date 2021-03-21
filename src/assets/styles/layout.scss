@@ -1,0 +1,11 @@
+.flex-grid {
+  display: flex;
+  .col-1 {
+    flex: 1;
+    height: 100%;
+  }
+  .col-2 {
+    flex: 50%;
+    height: 100%;
+  }
+}

@@ -17,7 +17,10 @@ function SearchComponent() {
 
   const handleInputChange = (inputValue: string) => {
     setAppContextDebounce({...appContext, searchText: inputValue})
-    console.log(setAppContext)
+  }
+  
+  const handleSelectChange = (val: { value: string, label: string }) => {
+    setAppContextDebounce({...appContext, searchKey: val.value})
   }
   return (
     <div className="search-component--container column">
@@ -26,6 +29,8 @@ function SearchComponent() {
         onChange={e => handleInputChange(e.target.value)}
         id="search-input" /></div>
         <Select isSearchable={false}
+        onChange={val => handleSelectChange(val)}
+          defaultValue={options[0]}
           placeholder={'search by'.toUpperCase()}
           styles={{...dropdownStyles}} options={options} />
       </div>

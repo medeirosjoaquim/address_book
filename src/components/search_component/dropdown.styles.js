@@ -13,7 +13,7 @@ export const dropdownStyles = {
     ...provided,
     textTransform: 'uppercase',
     fontSize: '1rem',
-    color: 'red',
+    color: '#999',
     fontWeight: 'bold'
   }),
   control: (provided) => ({

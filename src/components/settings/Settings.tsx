@@ -5,7 +5,7 @@ import './settings.scss'
 
 const Settings = () => {
   const [appContext, setAppContext] = useContext(MainContext)
-  const nationalities = [ 'CH', 'ES', 'FR', 'GB' ]
+  const nationalities = [ 'CH', 'ES', 'FR', 'GB', 'DE', 'BR' ]
   
   const handleCheckbox = (nat: string, checked: boolean) => {
     if (checked) {

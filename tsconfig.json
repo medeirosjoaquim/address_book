@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
       "jsx": "react",
+      "allowJs": true,
       "module": "commonjs",
       "noImplicitAny": true,
       "outDir": "./build/",
@@ -13,5 +14,5 @@
     "include": [
       "**/*.ts",
       "**/*.tsx"
-    ],
+, "src/components/search_component/dropdown.styles.js", "src/components/search_component/dropdown.styles.js"    ],
   }

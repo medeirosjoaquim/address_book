@@ -21,7 +21,11 @@ function SearchComponent() {
               ...provided,
               padding: 10,
               // backgroundColor: 'green',
-
+            }),
+            placeholder: (provided) => ({
+              ...provided,
+              fontSize: '2rem',
+              fontWeight: 'bold'
             }),
             control: (provided) => ({
               ...provided,

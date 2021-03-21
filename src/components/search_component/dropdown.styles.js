@@ -9,6 +9,13 @@ export const dropdownStyles = {
     fontSize: '1rem',
     fontWeight: 'bold'
   }),
+  singleValue: (provided) => ({
+    ...provided,
+    textTransform: 'uppercase',
+    fontSize: '1rem',
+    color: 'red',
+    fontWeight: 'bold'
+  }),
   control: (provided) => ({
     ...provided,
     height: '3rem',

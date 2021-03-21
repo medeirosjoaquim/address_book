@@ -10,7 +10,13 @@ import UserRow from '../user-row/user-row';
 const UsersList = () => {
   //TODO get nat from state
   const {status, data} = useFetch<{info: {}; results: IUser[]}>(baseUrl(), {params: {nat: ''}});
+  // filter results from lang in state
+  
+//if (lang) {
+//  users = temp2.results.filter(user => Lang.includes('BR') )
+//}
 
+  console.log(data)
   if (status === 'fetched') {
     return (
       <div className="users-list--container">

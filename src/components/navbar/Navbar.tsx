@@ -12,7 +12,6 @@ const Navbar = () => {
       <SearchComponent />
       <div className="navbar--container-settings-btn"
         onClick={() => setAppContext({...appContext, showSettings: !appContext.showSettings})}
-        onMouseLeave={() => setAppContext({...appContext, showSettings: false})}
       ><FaCog /></div>
     </div>
   );

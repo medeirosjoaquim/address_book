@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import Navbar from './components/navbar/Navbar';
 import UsersList from './components/users_list/Users_List';
-import { Lang, MainContext } from './context/app.context';
+import { MainContext } from './context/app.context';
 import './App.scss';
 import Settings from './components/settings/Settings';
 export default function App() {
-  const [appContext, setAppContext] = useState({ showSettings: false, filterLanguage: Lang.NONE })
+  const [appContext, setAppContext] = useState({ showSettings: false, filterNationality: [] })
 
   return (
     <MainContext.Provider value={[appContext, setAppContext]}>

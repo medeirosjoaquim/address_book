@@ -1,6 +1,8 @@
 import React from 'react';
 import {IUser} from '../../models/user.model';
 import './user-row.scss';
+
+
 const UserRow = ({name: {first, last},
    location, 
    picture, 
@@ -28,6 +30,7 @@ const UserRow = ({name: {first, last},
           </div>
         </div>
       </div>
+
     </div>
   );
 };

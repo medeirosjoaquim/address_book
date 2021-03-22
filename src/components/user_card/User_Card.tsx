@@ -1,28 +1,12 @@
-import React from 'react'
-import { CSSProperties } from 'styled-components';
-
-
-export const userCardStyles = (
-  show: boolean,
-): CSSProperties => ({
-  display: show ? 'none' : 'block',
-  width:  1280,
-  height: 75,
-  zIndex: 10,
-  position: 'relative',
-  top: 0,
-  left: 0,
-})
-
-
+import React from 'react';
+import './user-card.scss';
 
 const UserCard = () => {
-
   return (
-    <>
-      <h1>test</h1>
-    </>
-  )
-}
+    < div className="user-card--container">
+      <h1>user card works</h1>
+    </div>
+  );
+};
 
-export default UserCard
+export default UserCard;

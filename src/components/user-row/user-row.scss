@@ -29,27 +29,7 @@
     }
   }
 }
-.Modal {
-  top: 50%;
-  left: 50%;
-  right: auto;
-  bottom: auto;
-  margin-right: -50%;
-  height: 32rem;
-  width: 18rem;
-  position: absolute;
-  transform: translate(-50%, -50%);
-}
 
-.Overlay {
-  position: fixed;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rebeccapurple;
-}
 @include breakpoint(tablet) {
   .user-row {
     &--container {

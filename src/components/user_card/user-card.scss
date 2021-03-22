@@ -1,0 +1,14 @@
+.user-card--container{
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  height: 70%;
+  width: 80%;
+  position: relative;
+  margin-right: -50%;
+  background-color: white;
+  transform: translate(-50%, -50%)
+}

@@ -1,20 +1,20 @@
-import React, { useState, Suspense } from 'react';
-import Modal from 'react-modal';
+import React, {useState, Suspense} from 'react';
 
-import { Helmet } from 'react-helmet';
+import {Helmet} from 'react-helmet';
 import Navbar from './components/navbar/Navbar';
 import UsersList from './components/users_list/Users_List';
-import { MainContext } from './context/app.context';
-Modal.setAppElement('#root')
+import {MainContext} from './context/app.context';
 
 const Settings = React.lazy(() => import('./components/settings/Settings'));
 
 import './App.scss';
 export default function App() {
-  const [appContext, setAppContext] = useState({showSettings: false,
-    filterNationality: [], 
-    searchKey: 'name', 
-    searchText: ''})
+  const [appContext, setAppContext] = useState({
+    showSettings: false,
+    filterNationality: [],
+    searchKey: 'name',
+    searchText: '',
+  });
 
   return (
     <MainContext.Provider value={[appContext, setAppContext]}>
@@ -28,7 +28,7 @@ export default function App() {
           <Settings />
         </Suspense>
         <Navbar />
-        <UsersList /> 
+        <UsersList />
       </div>
     </MainContext.Provider>
   );

@@ -1,8 +1,11 @@
 import React, { useState, Suspense } from 'react';
+import Modal from 'react-modal';
+
 import { Helmet } from 'react-helmet';
 import Navbar from './components/navbar/Navbar';
 import UsersList from './components/users_list/Users_List';
 import { MainContext } from './context/app.context';
+Modal.setAppElement('#root')
 
 const Settings = React.lazy(() => import('./components/settings/Settings'));
 
@@ -25,7 +28,7 @@ export default function App() {
           <Settings />
         </Suspense>
         <Navbar />
-        <UsersList />
+        <UsersList /> 
       </div>
     </MainContext.Provider>
   );

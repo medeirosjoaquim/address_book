@@ -3,7 +3,7 @@ import './users-list.scss';
 import {useFetch} from '../../hooks/useFetch';
 import {baseUrl} from '../../consts/baseUrl';
 import {IUser} from '../../models/user.model';
-import UserRow from '../user-row/user-row';
+import UserRow from '../user-row/User_Row';
 import { MainContext } from '../../context/app.context';
 import { removeDiacritics } from '../../helpers/removeDiacritics';
 

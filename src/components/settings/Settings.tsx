@@ -27,7 +27,7 @@ const Settings = () => {
       display: appContext.showSettings ? 'block' : 'none'
     }}
       className="settings--container">
-      <div className="overlay aaa"></div>
+      <div className="app-overlay"></div>
       <div className="wrapper">
         <span className="settings--container-title">Settings</span>
         <div className="settings--container-nationalities">

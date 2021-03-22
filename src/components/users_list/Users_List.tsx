@@ -60,6 +60,8 @@ const UsersList = () => {
             key={user.login.uuid}
             name={user.name}
             email={user.email}
+            dob={user.dob}
+            phone={user.phone}
             login={user.login}
             location={user.location}
             picture={user.picture}

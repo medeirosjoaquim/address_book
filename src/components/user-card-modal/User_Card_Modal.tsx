@@ -19,11 +19,9 @@ function UserCardModal({handleShowModal = () => false, showModal = false }: IPro
     }
   };
 
-  return <div style={{display: showModal ? 'block' : 'none'}}
-  onClick={() => handleShowModal(false)}
+  return <div onClick={() => handleShowModal(false)}
   className="user-card-modal--container">
-    <UserCard />
-    <button onClick={() => handleShowModal(false)}>close</button>
+    <UserCard  />
   </div>;
 }
 

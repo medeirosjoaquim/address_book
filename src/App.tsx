@@ -15,6 +15,7 @@ export default function App() {
     filterNationality: [],
     searchKey: 'name',
     searchText: '',
+    userDetails: null
   });
 
   return (

@@ -4,6 +4,7 @@
 
 .user-row {
   &--container {
+    cursor: pointer;
     display: flex;
     margin-bottom: 1rem;
     background-color: #DBEAFE;
@@ -26,6 +27,11 @@
       flex-direction: column;
       align-items: start;
       justify-content: center;
+    }
+    &:hover {
+      border: 2px solid $primary;
+      -webkit-box-shadow: 5px 5px 0px 0px #289FED, 5px 5px 15px 5px rgba(0,0,0,0); 
+box-shadow: 5px 5px 0px 0px #289FED, 5px 5px 15px 5px rgba(0,0,0,0);
     }
   }
 }

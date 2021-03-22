@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { Helmet } from 'react-helmet';
 import Navbar from './components/navbar/Navbar';
 import UsersList from './components/users_list/Users_List';
 import { MainContext } from './context/app.context';
+
+const Settings = React.lazy(() => import('./components/settings/Settings'));
+
 import './App.scss';
-import Settings from './components/settings/Settings';
 export default function App() {
   const [appContext, setAppContext] = useState({showSettings: false,
     filterNationality: [], 
@@ -19,7 +21,9 @@ export default function App() {
           <title>Address book</title>
           <link rel="canonical" href="https://addressbook-jb.herokuapp.com" />
         </Helmet>
-        <Settings />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Settings />
+        </Suspense>
         <Navbar />
         <UsersList />
       </div>

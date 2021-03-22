@@ -13,7 +13,13 @@ const UserRow = ({ name: { first, last },
   login,
   phone
 }: IUser) => {
-  const [showModal, setShowModal] = useState(false)
+  const [_showModal, setShowModal] = useState(false)
+
+const handleModalCallback = (val:any): boolean => {
+  console.log("***************************",val)
+  setShowModal(false)
+  return true
+}
 
   return (
     <>
@@ -37,7 +43,7 @@ const UserRow = ({ name: { first, last },
           </div>
         </div>
       </div>
-      <UserCardModal showModal={showModal} />
+      <UserCardModal handleShowModal={handleModalCallback} showModal={_showModal} />
     </>
   );
 };

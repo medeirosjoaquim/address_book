@@ -24,9 +24,10 @@ const Settings = () => {
       style={{
         display: appContext.showSettings ? 'block' : 'none',
       }}
+      onClick={() => setAppContext({...appContext, showSettings: false})}
       className="settings--container"
     >
-      <div className="app-overlay"></div>
+      
       <div className="wrapper">
         <span className="settings--container-title">Settings</span>
         <div className="settings--container-nationalities">

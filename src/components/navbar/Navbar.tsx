@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useCallback, useContext, useEffect} from 'react';
 import SearchComponent from '../search_component/Search_Component';
 import './navbar.scss';
 
@@ -8,24 +8,15 @@ import {MainContext} from '../../context/app.context';
 const Navbar = () => {
   const [appContext, setAppContext] = useContext(MainContext);
 
-  const handleClose = (e?: MouseEvent) => {
-    const element = e.target as HTMLElement;
-    if (element?.classList?.value.includes('overlay')) {
-      document.removeEventListener('click', handleClose);
-      setAppContext({...appContext, showSettings: false});
-    }
-  };
-
   return (
     <div className="navbar--container row">
       <SearchComponent />
+      <div className="app-overlay"  
+      style={{display: appContext.showSettings ? 'block' : 'none',}}
+      onClick={() => setAppContext({...appContext, showSettings: false})}></div>
       <div
         className="navbar--container-settings-btn"
-        onClick={() => {
-          document.addEventListener('click', e => handleClose(e)),
-            setAppContext({...appContext, showSettings: !appContext.showSettings});
-        }}
-      >
+        onClick={() => setAppContext({...appContext, showSettings: !appContext.showSettings})}>
         <FaCog id="cog-icon" style={{color: !appContext.showSettings ? '#99cbeb' : '#bf1140'}} />
       </div>
     </div>

@@ -35,10 +35,7 @@ const handleModalCallback = (val:any): boolean => {
           </div>
           <div className="location--info">
             <div>
-              {location.city} - {location.country}
-            </div>
-            <div>
-              {location.street.name}, {location.street.number}
+              <span>{location.city} - {location.country}</span>
             </div>
           </div>
         </div>

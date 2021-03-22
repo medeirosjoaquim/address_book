@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface IMainState {
+export interface IMainState {
   showSettings: boolean;
   searchText: string;
   searchKey: string;

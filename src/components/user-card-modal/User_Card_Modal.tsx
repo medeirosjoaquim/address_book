@@ -19,15 +19,8 @@ function UserCardModal({handleShowModal = () => false, showModal = false }: IPro
     }
   };
 
-useEffect(() => {
- if (showModal) {
-   document.addEventListener('click', e => handleClickToClose(e))
- }
- return () => {
-   //cleanup
- }
-}, [showModal])
   return <div style={{display: showModal ? 'block' : 'none'}}
+  onClick={() => handleShowModal(false)}
   className="user-card-modal--container">
     <UserCard />
     <button onClick={() => handleShowModal(false)}>close</button>

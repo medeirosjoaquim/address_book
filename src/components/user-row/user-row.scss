@@ -12,7 +12,7 @@
     border-radius: 0.25rem;
     color: $primary;
     align-items: center;
-    height: 4.75rem;
+    height: 5.5rem;
     margin: 0.25rem;
     .avatar {
       // margin-top: 1rem;
@@ -27,6 +27,10 @@
       flex-direction: column;
       align-items: start;
       justify-content: center;
+      span {
+        display: block;
+        margin-bottom: 0.25rem;
+      }
     }
     &:hover {
       border: 2px solid $primary;

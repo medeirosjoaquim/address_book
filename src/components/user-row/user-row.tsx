@@ -1,7 +1,14 @@
 import React from 'react';
 import {IUser} from '../../models/user.model';
 import './user-row.scss';
-const UserRow = ({name: {first, last}, location, picture, email}: IUser) => {
+const UserRow = ({name: {first, last},
+   location, 
+   picture, 
+   email,
+   dob,
+   login,
+   phone
+}: IUser) => {
   return (
     <div className="user-row--container flex-grid">
       <div className="col-1 avatar">

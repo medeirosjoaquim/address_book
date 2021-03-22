@@ -5,13 +5,13 @@ import { IUser } from '../../models/user.model';
 import './user-row.scss';
 
 const modalStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
   }
 };
 
@@ -33,7 +33,8 @@ const UserRow = ({ name: { first, last },
 
   return (
     <>
-      <div className="user-row--container flex-grid">
+      <div className="user-row--container flex-grid"
+        onClick={handleOpen}>
         <div className="col-1 avatar">
           <img src={picture.thumbnail} alt="" />
         </div>
@@ -51,17 +52,17 @@ const UserRow = ({ name: { first, last },
             </div>
           </div>
         </div>
-      </div>  
+      </div>
       <Modal
         isOpen={showModal}
         style={modalStyles}
         shouldCloseOnOverlayClick={true}
         onRequestClose={handleCloseModal}
-        
-                >
-<h1>aaa</h1>
+
+      >
+        <h1>{first}</h1>
+        <h1>{login.username}</h1>
       </Modal>
-      <button onClick={handleOpen}></button>
     </>
   );
 };

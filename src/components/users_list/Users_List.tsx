@@ -53,7 +53,12 @@ const UsersList = () => {
     return (
       <div className="users-list--container">
         {users.map(user => (
-          <UserRow key={user.login.uuid} name={user.name} email={user.email} location={user.location} picture={user.picture} />
+          <UserRow key={user.login.uuid} 
+          name={user.name} 
+          email={user.email} 
+          login={user.login}
+          location={user.location} 
+          picture={user.picture} />
         ))}
       </div>
     );

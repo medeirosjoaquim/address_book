@@ -1,33 +1,31 @@
 export const dropdownStyles = {
-  option: (provided) => ({
+  option: (provided: any) => ({
     ...provided,
     padding: 10,
-    // backgroundColor: 'green',
   }),
-  placeholder: (provided) => ({
+  placeholder: (provided: any) => ({
     ...provided,
     fontSize: '1rem',
     fontWeight: 'bold'
   }),
-  singleValue: (provided) => ({
+  singleValue: (provided: any) => ({
     ...provided,
     textTransform: 'uppercase',
     fontSize: '1rem',
     color: '#999',
     fontWeight: 'bold'
   }),
-  control: (provided) => ({
+  control: (provided: any) => ({
     ...provided,
     height: '3rem',
     minHeight: 30,
     padding: 0,
-    // backgroundColor: 'red',
     lineHeight: 'normal',
     borderRadius: 0,
     border: 0,
     boxShadow: 'none'
   }),
-  container: (provided) => ({
+  container: (provided: any) => ({
     ...provided,
     width: '50%',
   })

@@ -14,5 +14,5 @@
     "include": [
       "**/*.ts",
       "**/*.tsx"
-, "src/components/search_component/dropdown.styles.js", "src/components/search_component/dropdown.styles.js"    ],
+, "src/components/search_component/dropdown.styles.ts", "src/components/search_component/dropdown.styles.ts"    ],
   }

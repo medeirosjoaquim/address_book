@@ -1,11 +1,13 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
+import {FaArrowUp} from 'react-icons/fa';
+
 import './users-list.scss';
 import {useFetch} from '../../hooks/useFetch';
 import {baseUrl} from '../../consts/baseUrl';
 import {IUser} from '../../models/user.model';
 import UserRow from '../user-row/User_Row';
 import {MainContext} from '../../context/app.context';
-import {removeDiacritics} from '../../helpers/removeDiacritics';
+import { filterNationality, filterSearch } from '../../helpers/filters.helpers';
 
 // TODO: use react-virtualized to render list
 
@@ -13,41 +15,12 @@ const UsersList = () => {
   const [appContext, _] = useContext(MainContext);
   const {status, data} = useFetch<{info: {}; results: IUser[]}>(baseUrl(), {params: {nat: ''}});
 
-  const filterNationality = (users: IUser[], natArray: string[]): IUser[] => {
-    if (natArray.length > 0) {
-      return users.filter(user => natArray.includes(user.nat));
-    } else {
-      return users;
-    }
-  };
-
-  const filterSearch = (users: IUser[], searchText: string, searchKey = 'name'): IUser[] => {
-    searchText = removeDiacritics(searchText.toLowerCase());
-    if (searchText.length < 1) {
-      return users;
-    } else {
-      switch (searchKey) {
-        case 'name':
-          return users.filter(
-            user =>
-              removeDiacritics(user.name.first.toLowerCase()).includes(searchText) ||
-              removeDiacritics(user.name.last.toLowerCase()).includes(searchText)
-          );
-        case 'address':
-          return users.filter(
-            user =>
-              removeDiacritics(user.location.street.name.toLowerCase()).includes(searchText) ||
-              removeDiacritics(user.location.city.toLowerCase()).includes(searchText) ||
-              removeDiacritics(user.location.state.toLowerCase()).includes(searchText) ||
-              removeDiacritics(user.location.country.toLowerCase()).includes(searchText)
-          );
-        case 'email':
-          return users.filter(user => removeDiacritics(user.email.toLowerCase()).includes(searchText));
-        default:
-          break;
-      }
-      return users.filter(user => user[searchKey as keyof IUser] === searchText);
-    }
+  const scrollUp = () => {
+    console.log('aaa')
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   };
 
   if (status === 'fetched') {
@@ -67,6 +40,7 @@ const UsersList = () => {
             picture={user.picture}
           />
         ))}
+        <div className="fab-btn" onClick={() => scrollUp()}><FaArrowUp/></div>
       </div>
     );
   } else {

@@ -9,7 +9,23 @@
     height: 90%;
     display: flex;
     flex-direction: column;
-  }
+    .fab-btn {
+        background-color: $base-light;
+        right: 0;
+        bottom: 1.5rem;
+        height: 3.75rem;
+        width: 3.75rem;
+        border-radius: 50%;
+        transition: height 300ms;
+        transition-timing-function: ease;
+        position: absolute;
+        text-align: center;
+        overflow: hidden;
+        font-size: 2.5rem;
+        color: $primary;
+        padding: 0.5rem 0;
+        }
+    }
 }
 
 @include breakpoint(tablet) {

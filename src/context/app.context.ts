@@ -14,8 +14,8 @@ const UserRow = ({ name: { first, last },
 
 type UserDetails = Pick<IUser, 
   'name'    |
-  'location'|
   'picture' |
+  'location'|
   'email'   |
   'dob'     |
   'login'   |

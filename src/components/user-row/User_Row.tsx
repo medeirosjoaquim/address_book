@@ -39,7 +39,7 @@ const UserRow = ({ name,
             
           </div>
           <div className="mail--info">
-          <span>{'✉️ '+ email}</span>
+          <span>{email}</span>
           </div>
           <div className="location--info">
             <div>

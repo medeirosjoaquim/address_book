@@ -1,8 +1,8 @@
-import React, {useCallback, useContext, useEffect} from 'react';
+import React, { useContext } from 'react';
+import {FaCog} from 'react-icons/fa';
+
 import SearchComponent from '../search_component/Search_Component';
 import './navbar.scss';
-
-import {FaCog} from 'react-icons/fa';
 import {MainContext} from '../../context/app.context';
 
 const Navbar = () => {

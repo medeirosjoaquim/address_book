@@ -23,8 +23,8 @@ const UserCard = () => {
         <div className="flex-grid">
           <div className="user-card--container-info--data col-2">
             <div className="info txt-center mb-1">👤 {login.username}</div>
-            <div className="info">✉️ {email}</div>
-            <div className="info">📞 {phone}</div>
+            <div className="info"><span className="font-sm">✉️</span> {email}</div>
+            <div className="info"><span className="font-sm">📞</span> {phone}</div>
             <div className="location mt-2  py-1">
               <div className="info">{location.city} - {location.state} - {location.country} </div>
               <div className="info">{location.street.name},{location.street.number}</div>

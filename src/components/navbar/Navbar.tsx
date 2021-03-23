@@ -15,6 +15,7 @@ const Navbar = () => {
       style={{display: appContext.showSettings ? 'block' : 'none',}}
       onClick={() => setAppContext({...appContext, showSettings: false})}></div>
       <div
+        data-testid="settings-btn"
         className="navbar--container-settings-btn"
         onClick={() => setAppContext({...appContext, showSettings: !appContext.showSettings})}>
         <FaCog id="cog-icon" style={{color: !appContext.showSettings ? '#99cbeb' : '#bf1140'}} />

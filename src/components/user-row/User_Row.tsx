@@ -28,17 +28,18 @@ const UserRow = ({ name,
   return (
     <>
       <div className="user-row--container flex-grid"
-        onClick={handleDetails} 
-        //onClick={() => setShowModal(true)} 
-        
+        onClick={handleDetails}         
         >
-        <div className="col-1 avatar">
+        <div className="avatar">
           <img src={picture.thumbnail} alt="" />
         </div>
         <div className="col-2 user-row--container-info">
           <div className="name--info">
             <span>{name.first + ' ' + name.last}</span>
-            <span>{email}</span>
+            
+          </div>
+          <div className="mail--info">
+          <span>{'✉️ '+ email}</span>
           </div>
           <div className="location--info">
             <div>

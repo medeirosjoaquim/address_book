@@ -9,7 +9,7 @@ const UserCard = () => {
   console.log(appContext.userDetails)
   return (
     < div className="user-card--container">
-      <FaTimes style={{float: 'right', fontSize: '1.5rem'}}/>
+      <FaTimes className="user-card--container-close-btn"/>
       <h1>user card works</h1>
       <pre>{JSON.stringify(appContext.userDetails)}</pre>
     </div>

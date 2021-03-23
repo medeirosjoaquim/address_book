@@ -8,16 +8,13 @@
     display: flex;
     margin-bottom: 1rem;
     background-color: #DBEAFE;
-    padding: 0.5rem;
     border-radius: 0.25rem;
     color: $primary;
     align-items: center;
     height: 5.5rem;
     margin: 0.25rem;
     .avatar {
-      // margin-top: 1rem;
-      // margin-right: 0.5rem;
-      // max-width: 3.25rem;
+      padding: 1rem;
       img {
         border-radius: 50%;
       }
@@ -26,7 +23,14 @@
       display: flex;
       flex-direction: column;
       align-items: start;
-      justify-content: center;
+      .name--info {
+        text-align: center;
+        width: 100%;
+        background-color: $base-light;
+        color: $cream;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
       span {
         display: block;
         margin-bottom: 0.25rem;

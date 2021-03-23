@@ -10,5 +10,9 @@
   position: relative;
   margin-right: -50%;
   background-color: white;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
+  &-close-btn {
+    float: right;
+    font-size: 1.5rem;
+  }
 }

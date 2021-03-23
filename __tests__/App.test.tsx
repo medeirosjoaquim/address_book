@@ -15,7 +15,8 @@ test('App title must be set', async () => {
   await waitFor(() => expect(document.title).toEqual(expectTitle));
 });
 
-test('App should render main components', async () => {
+test('App should render main components', () => {
+  render(<App />)
   const usersListComponent = screen.getByTestId('users-list')
   const searchComponent = screen.getByTestId('search')
   const navBarComponent = screen.getByTestId('navbar')

@@ -23,7 +23,8 @@ function SearchComponent() {
     setAppContextDebounce({...appContext, searchKey: val.value});
   };
   return (
-    <div className="search-component--container column">
+    <div className="search-component--container column"
+    data-testid="search">
       <div className="row">
         <div className="input-field">
           <input placeholder="Search" onChange={e => handleInputChange(e.target.value)} id="search-input" />

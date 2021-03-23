@@ -43,7 +43,9 @@ const UsersList = () => {
     let users = filterNationality(data.results, appContext.filterNationality);
     users = filterSearch(users, appContext.searchText, appContext.searchKey);
     return (
-      <div className="users-list--container" data-testid="users-list" id="users-list">
+      <div className="users-list--container" 
+      data-testid="users-list"     
+      id="users-list">
         {users.map(user => (
           <UserRow
             key={user.login.uuid}
@@ -64,7 +66,9 @@ const UsersList = () => {
     );
   } else {
     return (
-      <div className="users-list--container">
+      <div className="users-list--container"
+      data-testid="users-list"
+      id="users-list" >
         <h1>loading...</h1>
       </div>
     );

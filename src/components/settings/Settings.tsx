@@ -27,7 +27,6 @@ const Settings = () => {
       onClick={() => setAppContext({...appContext, showSettings: false})}
       className="settings--container"
     >
-      
       <div className="wrapper">
         <span className="settings--container-title">Settings</span>
         <div className="settings--container-nationalities">

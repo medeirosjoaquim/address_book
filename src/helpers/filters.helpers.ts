@@ -1,5 +1,5 @@
-import { IUser } from "../models/user.model";
-import { removeDiacritics } from "./removeDiacritics";
+import {IUser} from '../models/user.model';
+import {removeDiacritics} from './removeDiacritics';
 
 export const filterNationality = (users: IUser[], natArray: string[]): IUser[] => {
   if (natArray.length > 0) {

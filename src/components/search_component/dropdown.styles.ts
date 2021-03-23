@@ -6,14 +6,14 @@ export const dropdownStyles = {
   placeholder: (provided: any) => ({
     ...provided,
     fontSize: '1rem',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   }),
   singleValue: (provided: any) => ({
     ...provided,
     textTransform: 'uppercase',
     fontSize: '1rem',
     color: '#999',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   }),
   control: (provided: any) => ({
     ...provided,
@@ -23,10 +23,10 @@ export const dropdownStyles = {
     lineHeight: 'normal',
     borderRadius: 0,
     border: 0,
-    boxShadow: 'none'
+    boxShadow: 'none',
   }),
   container: (provided: any) => ({
     ...provided,
     width: '50%',
-  })
-}
+  }),
+};

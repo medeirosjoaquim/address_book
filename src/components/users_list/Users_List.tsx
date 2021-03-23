@@ -7,8 +7,8 @@ import {baseUrl} from '../../consts/baseUrl';
 import {IUser} from '../../models/user.model';
 import UserRow from '../user-row/User_Row';
 import {MainContext} from '../../context/app.context';
-import { filterNationality, filterSearch } from '../../helpers/filters.helpers';
-import { useKeyPress } from '../../hooks/useKeypress';
+import {filterNationality, filterSearch} from '../../helpers/filters.helpers';
+import {useKeyPress} from '../../hooks/useKeypress';
 
 // TODO: use react-virtualized to render list
 
@@ -17,35 +17,33 @@ const UsersList = () => {
   const {status, data} = useFetch<{info: {}; results: IUser[]}>(baseUrl(), {params: {nat: ''}});
 
   const scrollUp = () => {
-    const userListDiv = document.getElementById('users-list')
+    const userListDiv = document.getElementById('users-list');
     userListDiv.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: 'smooth',
     });
   };
   const arrowDown = useKeyPress('ArrowDown');
   const arrowUp = useKeyPress('ArrowUp');
 
   useEffect(() => {
-    
     if (arrowDown) {
-      const userListDiv = document.getElementById('users-list')
-      const yPos = userListDiv.scrollTop
+      const userListDiv = document.getElementById('users-list');
+      const yPos = userListDiv.scrollTop;
       userListDiv.scrollTo(0, yPos + 500);
     }
     if (arrowUp) {
-      const userListDiv = document.getElementById('users-list')
-      const yPos = userListDiv.scrollTop
+      const userListDiv = document.getElementById('users-list');
+      const yPos = userListDiv.scrollTop;
       userListDiv.scrollTo(0, yPos - 500);
     }
-  }, [arrowDown, arrowUp])
- 
+  }, [arrowDown, arrowUp]);
+
   if (status === 'fetched') {
     let users = filterNationality(data.results, appContext.filterNationality);
     users = filterSearch(users, appContext.searchText, appContext.searchKey);
     return (
-      <div className="users-list--container"
-      id="users-list">
+      <div className="users-list--container" data-testid="users-list" id="users-list">
         {users.map(user => (
           <UserRow
             key={user.login.uuid}
@@ -60,7 +58,8 @@ const UsersList = () => {
           />
         ))}
         <div className="fab-btn" onClick={() => scrollUp()}>
-        <FaArrowUp/></div>
+          <FaArrowUp />
+        </div>
       </div>
     );
   } else {

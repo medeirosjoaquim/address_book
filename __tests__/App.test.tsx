@@ -15,15 +15,26 @@ test('App title must be set', async () => {
   await waitFor(() => expect(document.title).toEqual(expectTitle));
 });
 
+test('App should render main components', async () => {
+  const usersListComponent = screen.getByTestId('users-list')
+  const searchComponent = screen.getByTestId('search')
+  const navBarComponent = screen.getByTestId('navbar')
+  const settingsBtn = screen.getByTestId('settings-btn')
+  expect(usersListComponent).toBeInTheDocument()
+  expect(searchComponent).toBeInTheDocument()
+  expect(navBarComponent).toBeInTheDocument()
+  expect(settingsBtn).toBeInTheDocument()
+});
+
 test("Don't show settings if cog icon is not clicked", async() => {
   const { getByText } = render(<App />)
-  expect(getByText('Settings')).toBeInTheDocument();
+    expect(getByText('Settings')).toBeInTheDocument();
 });
 
 test("When cog icon is clicked it must show settings", async() => {
   const { getByText } = render(<App />)
   //const button = getByText('Button')
-  const btn = screen.getByTestId('settings-btn')
-  await fireEvent.click(btn)
+  const settingsBtn = screen.getByTestId('settings-btn')
+  await fireEvent.click(settingsBtn)
   expect(getByText('Settings')).toBeInTheDocument();
 });

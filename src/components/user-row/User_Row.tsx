@@ -12,7 +12,8 @@ const UserRow = ({ name,
   email,
   dob,
   login,
-  phone
+  phone,
+  nat
 }: IUser) => {
   const [showModal, setShowModal] = useState(false)
   const [appContext, setAppContext] = useContext(MainContext);
@@ -21,7 +22,7 @@ const UserRow = ({ name,
   }
 
   const handleDetails = () => {
-    setAppContext({ ...appContext, userDetails: { name, location, dob, login, phone, picture, email } })
+    setAppContext({ ...appContext, userDetails: { name, location, nat, dob, login, phone, picture, email } })
     setShowModal(true)
   }
 
@@ -31,7 +32,7 @@ const UserRow = ({ name,
         onClick={handleDetails}         
         >
         <div className="avatar">
-          <img src={picture.thumbnail} alt="" />
+          <img src={picture.thumbnail} alt={name.first + ' ' + name.last + ' ' + 'profile picture'} />
         </div>
         <div className="col-2 user-row--container-info">
           <div className="name--info">

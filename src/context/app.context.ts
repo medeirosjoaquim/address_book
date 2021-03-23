@@ -1,17 +1,6 @@
 import React from 'react';
 import { IUser } from '../models/user.model';
 
-/*
-const UserRow = ({ name: { first, last },
-  location,
-  picture,
-  email,
-  dob,
-  login,
-  phone
-}: IUser
-*/
-
 type UserDetails = Pick<IUser, 
   'name'    |
   'picture' |
@@ -19,7 +8,8 @@ type UserDetails = Pick<IUser,
   'email'   |
   'dob'     |
   'login'   |
-  'phone'   
+  'phone'   |
+  'nat'     
 >
 export interface IMainState {
   showSettings: boolean;

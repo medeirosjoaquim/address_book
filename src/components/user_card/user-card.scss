@@ -1,18 +1,91 @@
-.user-card--container{
-  top: 50%;
-  left: 50%;
-  right: auto;
-  bottom: auto;
-  padding: 1rem;
-  border-radius: 0.25rem;
-  height: 70%;
-  width: 90%;
-  position: relative;
-  margin-right: -50%;
-  background-color: white;
-  transform: translate(-50%, -50%);
-  &-close-btn {
-    float: right;
-    font-size: 1.5rem;
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/breakpoints.scss";
+
+.user-card {
+  &--container {
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    padding: 1rem 0.25rem;
+    border-radius: 0.25rem;
+    height: 90%;
+    width: 92%;
+    position: relative;
+    margin-right: -50%;
+    background-color: white;
+    transform: translate(-50%, -50%);
+
+    &-info {
+      padding: 1rem 0;
+      &--title {
+        width: 100%;
+        text-align: center;
+        color: $dark80;
+        font-weight: bold;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+      &--avatar {
+        text-align: center;
+      }
+      &--data {
+        margin-top: 0.5rem;
+      }
+    }
+    &-close-btn {
+      float: right;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.info {
+  font-size: 1.25rem;
+  color: $dark60;
+  text-align: start;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+@include breakpoint(tablet) {
+  .user-card {
+    &--container {
+      top: 50%;
+      left: 50%;
+      right: auto;
+      bottom: auto;
+      padding: 2rem;
+      border-radius: 0.25rem;
+      height: 80%;
+      width: 80%;
+      position: relative;
+      margin-right: -50%;
+      background-color: white;
+      transform: translate(-50%, -50%);
+
+      &-info {
+        padding: 1rem 0;
+        &--title {
+          width: 100%;
+          text-align: center;
+          color: $dark80;
+          font-weight: bold;
+          font-size: 1.5rem;
+          margin-bottom: 0.5rem;
+        }
+        &--avatar {
+          text-align.user-row {
+            &--container {
+              width: 48%;
+            }
+          }
+        }
+        &-close-btn {
+          float: right;
+          font-size: 1.5rem;
+        }
+      }
+    }
   }
 }

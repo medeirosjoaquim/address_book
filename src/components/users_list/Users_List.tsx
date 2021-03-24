@@ -2,7 +2,6 @@ import React, {useContext, useEffect, useState} from 'react';
 import {FaArrowUp} from 'react-icons/fa';
 
 import './users-list.scss';
-import {useFetch} from '../../hooks/useFetch';
 import {baseUrl} from '../../consts/baseUrl';
 import {IUser} from '../../models/user.model';
 import UserRow from '../user-row/User_Row';
@@ -15,15 +14,28 @@ import axios from 'axios';
 
 const UsersList = () => {
   const [appContext, _] = useContext(MainContext);
-  const [data, setData] = useState({results:[]})
-//  const {status, data} = useFetch<{info: {}; results: IUser[]}>(baseUrl(), {params: {nat: ''}});
+  const [data, setData] = useState({results: []});
 
-useEffect(() => {
-axios.get(baseUrl())
-.then(response => setData(response.data))
-.catch(err => console.log(err))
+  useEffect(() => {
+    let mounted = true;
+    const source = axios.CancelToken.source();
+    axios
+      .get(baseUrl())
+      .then(response => {
+        if (mounted) {
+          setData(response.data)
+        }
+      })
+      .catch(err => {
+        source.cancel("Cancelling request");        
+        setData(null) 
+      });
+      return () => {
+        mounted = false;
+        //source.cancel("Cancelling request");
+      }
+    }, []);
 
-}, [])
 
   const scrollUp = () => {
     const userListDiv = document.getElementById('users-list');
@@ -52,9 +64,7 @@ axios.get(baseUrl())
     let users = filterNationality(data?.results, appContext.filterNationality);
     users = filterSearch(users, appContext.searchText, appContext.searchKey);
     return (
-      <div className="users-list--container" 
-      data-testid="users-list"     
-      id="users-list">
+      <div className="users-list--container" data-testid="users-list" id="users-list">
         {users.map(user => (
           <UserRow
             key={user.login.uuid}
@@ -75,9 +85,7 @@ axios.get(baseUrl())
     );
   } else {
     return (
-      <div className="users-list--container"
-      data-testid="users-list"
-      id="users-list" >
+      <div className="users-list--container" data-testid="users-list" id="users-list">
         <h1>loading...</h1>
       </div>
     );

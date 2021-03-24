@@ -2,7 +2,7 @@ import { rest } from 'msw'
 
 export const handlers = [
   rest.get('https://randomuser.me/api', (req, res, ctx) => {
-//  return res(ctx.json({ greeting: 'hello there' }))
+//  return res(ctx.json({ greeting: 'hello there' }))usern
     return res(ctx.json({
       "status": "fetched",
       "data": {
@@ -177,7 +177,7 @@ export const handlers = [
               }
           ],
           "info": {
-              "seed": "sherpany",
+              "seed": "add",
               "results": 3,
               "page": 1,
               "version": "1.3"
@@ -186,121 +186,3 @@ export const handlers = [
   }))
 })
 ]
-
-/*
-
-, data: {results: [
-      {
-          "gender": "male",
-          "name": {
-              "title": "Mr",
-              "first": "Alex",
-              "last": "Moraes"
-          },
-          "location": {
-              "street": {
-                  "number": 4527,
-                  "name": "Rua Primeiro de Maio "
-              },
-              "city": "Crato",
-              "state": "Pará",
-              "country": "Brazil",
-              "postcode": 84837,
-              "coordinates": {
-                  "latitude": "-69.2781",
-                  "longitude": "-26.2907"
-              },
-              "timezone": {
-                  "offset": "+7:00",
-                  "description": "Bangkok, Hanoi, Jakarta"
-              }
-          },
-          "email": "alex.moraes@example.com",
-          "login": {
-              "uuid": "19d7848d-fcdc-4cdb-ada2-23feb77ce3dc",
-              "username": "reddog219",
-              "password": "state",
-              "salt": "8XZWU2RA",
-              "md5": "b3ad9e8d4bee0340986e797ff9c29721",
-              "sha1": "05d360e27349d7eebc96c44f29430986eef2e1de",
-              "sha256": "bc730c23c6421e00df7f8dee62eb83304a6fbd0b44e96034ba69329404634750"
-          },
-          "dob": {
-              "date": "1957-11-03T02:00:13.403Z",
-              "age": 64
-          },
-          "registered": {
-              "date": "2019-03-06T11:51:31.474Z",
-              "age": 2
-          },
-          "phone": "(74) 4792-8798",
-          "cell": "(62) 8994-2198",
-          "id": {
-              "name": "",
-              "value": null
-          },
-          "picture": {
-              "large": "https://randomuser.me/api/portraits/men/92.jpg",
-              "medium": "https://randomuser.me/api/portraits/med/men/92.jpg",
-              "thumbnail": "https://randomuser.me/api/portraits/thumb/men/92.jpg"
-          },
-          "nat": "BR"
-      },
-      {
-          "gender": "male",
-          "name": {
-              "title": "Mr",
-              "first": "Nísio",
-              "last": "Viana"
-          },
-          "location": {
-              "street": {
-                  "number": 1985,
-                  "name": "Rua São João "
-              },
-              "city": "Conselheiro Lafaiete",
-              "state": "Acre",
-              "country": "Brazil",
-              "postcode": 57490,
-              "coordinates": {
-                  "latitude": "76.1589",
-                  "longitude": "127.9349"
-              },
-              "timezone": {
-                  "offset": "+9:00",
-                  "description": "Tokyo, Seoul, Osaka, Sapporo, Yakutsk"
-              }
-          },
-          "email": "nisio.viana@example.com",
-          "login": {
-              "uuid": "a3def732-ee17-4bfd-bc40-8b722de22d29",
-              "username": "bluelion538",
-              "password": "stalin",
-              "salt": "UCiiZ5hj",
-              "md5": "590d801fb1925461bf5668b6b4331ed5",
-              "sha1": "50b1fd877407443f9b440f925973ac3315e286fc",
-              "sha256": "8324562e913f8b3fb135b8d6dcd37f1b4f22bd71affa65f0efae5357dd2463df"
-          },
-          "dob": {
-              "date": "1946-05-16T01:49:25.411Z",
-              "age": 75
-          },
-          "registered": {
-              "date": "2006-02-20T19:37:00.709Z",
-              "age": 15
-          },
-          "phone": "(59) 6530-6382",
-          "cell": "(86) 8257-8010",
-          "id": {
-              "name": "",
-              "value": null
-          },
-          "picture": {
-              "large": "https://randomuser.me/api/portraits/men/72.jpg",
-              "medium": "https://randomuser.me/api/portraits/med/men/72.jpg",
-              "thumbnail": "https://randomuser.me/api/portraits/thumb/men/72.jpg"
-          },
-          "nat": "BR"
-      }
-  ]
-*/

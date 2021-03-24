@@ -1,11 +1,6 @@
 import React from 'react'
 import { render, waitFor, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-//import userEvent from "@testing-library/user-event";
-
-//import userEvent from "@testing-library/user-event";
-
-// const { container, getByTitle } = await render(<App />)
 
 import App from '../src/App'
 
@@ -34,7 +29,6 @@ test("Don't show settings if cog icon is not clicked", async() => {
 
 test("When cog icon is clicked it must show settings", async() => {
   const { getByText } = render(<App />)
-  //const button = getByText('Button')
   const settingsBtn = screen.getByTestId('settings-btn')
   await fireEvent.click(settingsBtn)
   expect(getByText('Settings')).toBeInTheDocument();

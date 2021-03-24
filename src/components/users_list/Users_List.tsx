@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {FaArrowUp} from 'react-icons/fa';
 
 import './users-list.scss';
@@ -9,12 +9,21 @@ import UserRow from '../user-row/User_Row';
 import {MainContext} from '../../context/app.context';
 import {filterNationality, filterSearch} from '../../helpers/filters.helpers';
 import {useKeyPress} from '../../hooks/useKeypress';
+import axios from 'axios';
 
 // TODO: use react-virtualized to render list
 
 const UsersList = () => {
   const [appContext, _] = useContext(MainContext);
-  const {status, data} = useFetch<{info: {}; results: IUser[]}>(baseUrl(), {params: {nat: ''}});
+  const [data, setData] = useState({results:[]})
+//  const {status, data} = useFetch<{info: {}; results: IUser[]}>(baseUrl(), {params: {nat: ''}});
+
+useEffect(() => {
+axios.get(baseUrl())
+.then(response => setData(response.data))
+.catch(err => console.log(err))
+
+}, [])
 
   const scrollUp = () => {
     const userListDiv = document.getElementById('users-list');
@@ -39,8 +48,8 @@ const UsersList = () => {
     }
   }, [arrowDown, arrowUp]);
 
-  if (status === 'fetched') {
-    let users = filterNationality(data.results, appContext.filterNationality);
+  if (data) {
+    let users = filterNationality(data?.results, appContext.filterNationality);
     users = filterSearch(users, appContext.searchText, appContext.searchKey);
     return (
       <div className="users-list--container" 

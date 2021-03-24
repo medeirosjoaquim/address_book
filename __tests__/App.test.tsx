@@ -48,16 +48,29 @@ test("should show settings when cog icon is clicked it ", async() => {
 //   })
 // )
 
+const server = setupServer(
+  rest.get('/api', (_, res, ctx) => {
+    return res(ctx.json({ status: 'fetching', data: [], error: '' }))
+  })
+)
+beforeAll(() => server.listen())
+afterEach(() => server.resetHandlers())
+afterAll(() => server.close())
+
 
 test('Should show "loading..." when request status is "fetching" ', async () => {
-  const serverFetching = setupServer(
-    rest.get('/api/', (_, res, ctx) => {
-      return res(ctx.json({ status: 'fetching', data: [], error: '' }))
-    })
-  )
-  beforeAll(() => serverFetching.listen())
-  afterEach(() => serverFetching.resetHandlers())
-  afterAll(() => serverFetching.close())
   render(<UsersList />)
   expect(screen.getByRole('heading')).toHaveTextContent('loading...')
+})
+
+test('Should show "aaa..." when request status is "fetched" ', async () => {
+  server.use(
+    rest.get('/api', (req, res, ctx) => {
+      return res(ctx.json({ status: 'fetched', data: [], error: '' }))
+    })
+  )
+  render(<UsersList />)
+  await waitFor(() => screen.getByRole('heading'))
+  expect(screen.getByRole('heading')).toHaveTextContent('hello there')
+
 })

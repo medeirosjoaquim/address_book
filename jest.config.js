@@ -7,7 +7,6 @@ module.exports = {
   },
   testMatch: ["**/__tests__/**/*.ts?(x)", "**/?(*.)+(test).ts?(x)", "**/__tests__/**/*.js?(x)", "**/?(*.)+(test).js?(x)"],
   setupFilesAfterEnv: ['./jest.setup.js'],
- 
   transform: {
     '^.+\\.ts?$': 'ts-jest',
     "^.+\\.(js?)$": "babel-jest"

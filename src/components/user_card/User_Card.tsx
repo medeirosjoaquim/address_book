@@ -22,7 +22,7 @@ const UserCard = () => {
         </div>
         <div className="flex-grid">
           <div className="user-card--container-info--data col-2">
-            <div className="info txt-center mb-1">👤 {login.username}</div>
+            <div className="info txt-center mb-2 bold">👤 {login.username}</div>
             <div className="info">
               <span className="font-sm">✉️</span> {email}
             </div>

@@ -1,10 +1,8 @@
 import React from 'react'
 import { render, waitFor, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import { rest } from 'msw'
 
 import App from '../src/App'
-import {server} from '/home/joaquim/dojo/address_book/__mocks__/server.js'
 import UsersList from '../src/components/users_list/Users_List'
 
 test('App title must be set', async () => {
@@ -29,29 +27,3 @@ test("Should not show settings if cog icon is not clicked", async() => {
   const { getByText } = render(<App />)
     expect(getByText('Settings')).toBeInTheDocument();
 });
-
-test("should show settings when cog icon is clicked it ", async() => {
-  const { getByText } = render(<App />)
-  const settingsBtn = screen.getByTestId('settings-btn')
-  await fireEvent.click(settingsBtn)
-  expect(getByText('Settings')).toBeInTheDocument();
-});
-
-test('Should show "loading..." when request status is "fetching" ', async () => {
-  render(<UsersList />)
-  server.use(
-    rest.get('https://randomuser.me/api', (req, res, ctx) => {
-      return res(ctx.status(500))
-    })
-  )
-  
-  await waitFor(() => screen.getByRole('heading'))
-  expect(screen.getByRole('heading')).toHaveTextContent('loading...')
-})
-
-// test('Should show "aaa..." when request status is "fetched" ', async () => {
-//   render(<UsersList />)
-//   console.log()
-//   const AAA = await waitFor(() => screen.getByRole('heading'))
-//   expect(AAA).toHaveTextContent('hello there')
-// })

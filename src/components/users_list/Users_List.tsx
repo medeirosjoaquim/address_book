@@ -1,40 +1,26 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {FaArrowUp} from 'react-icons/fa';
+import React, { useContext, useEffect, useState } from 'react';
+import { FaArrowUp } from 'react-icons/fa';
 
 import './users-list.scss';
-import {baseUrl} from '../../consts/baseUrl';
-import {IUser} from '../../models/user.model';
+import { baseUrl } from '../../consts/baseUrl';
 import UserRow from '../user-row/User_Row';
-import {MainContext} from '../../context/app.context';
-import {filterNationality, filterSearch} from '../../helpers/filters.helpers';
-import {useKeyPress} from '../../hooks/useKeypress';
+import { MainContext } from '../../context/app.context';
+import { filterNationality, filterSearch } from '../../helpers/filters.helpers';
+import { useKeyPress } from '../../hooks/useKeypress';
 import axios from 'axios';
 
 // TODO: use react-virtualized to render list
 
 const UsersList = () => {
   const [appContext, _] = useContext(MainContext);
-  const [data, setData] = useState({results: []});
+  const [data, setData] = useState(null);
 
   useEffect(() => {
-    let mounted = true;
-    const source = axios.CancelToken.source();
     axios
-      .get(baseUrl())
-      .then(response => {
-        if (mounted) {
-          setData(response.data)
-        }
-      })
-      .catch(err => {
-        source.cancel("Cancelling request");        
-        setData(null) 
-      });
-      return () => {
-        mounted = false;
-        //source.cancel("Cancelling request");
-      }
-    }, []);
+      .get(baseUrl)
+      .then(response =>  setData(response.data))
+      .catch(err => { console.log(err)});
+  }, []);
 
 
   const scrollUp = () => {
@@ -60,11 +46,12 @@ const UsersList = () => {
     }
   }, [arrowDown, arrowUp]);
 
-  if (data) {
+  if (data?.results) {
     let users = filterNationality(data?.results, appContext.filterNationality);
     users = filterSearch(users, appContext.searchText, appContext.searchKey);
     return (
       <div className="users-list--container" data-testid="users-list" id="users-list">
+        <div className="users-list--container--heading"><h1>Users List</h1></div>
         {users.map(user => (
           <UserRow
             key={user.login.uuid}

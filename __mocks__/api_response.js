@@ -1,4 +1,4 @@
-{
+export const MOCK_API_RESULTS = {
   "results": [
       {
           "gender": "male",

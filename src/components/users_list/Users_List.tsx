@@ -63,7 +63,8 @@ const UsersList = () => {
 
   if (data?.results) {
     let users = filterNationality(data?.results, appContext.filterNationality);
-    users = filterSearch(users, appContext.searchText, appContext.searchKey);
+    users = filterSearch(users, appContext.searchText, appContext.searchKey)
+            .sort((a, b) => (a.name.first > b.name.first) ? 1 : -1);
     return (
       <div className="users-list--container" data-testid="users-list" id="users-list">
         <div className="users-list--container--heading">

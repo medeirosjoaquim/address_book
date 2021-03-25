@@ -16,20 +16,13 @@
 
 .row {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
 }
 
 .column {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
-  flex: 1;
-  margin-right: 0.15rem;
+  flex: 50%;
 }
 .py-1 {
-  padding: 0.5rem 0;
+  padding-top: 0.5rem;
 }
 
 .font-sm {
@@ -46,6 +39,9 @@ font-size: 0.85rem;
 }
 .mb-2 {
   margin-bottom: 1rem;
+}
+.mb-3 {
+  margin-bottom: 2rem;
 }
 .ml-1 {
   margin-left: 0.5rem;

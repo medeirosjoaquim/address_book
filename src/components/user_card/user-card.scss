@@ -46,6 +46,7 @@
   text-align: start;
   font-weight: 500;
   margin-bottom: 0.25rem;
+  margin-right: 0.5rem;
 }
 
 @include breakpoint(tablet) {
@@ -57,7 +58,7 @@
       bottom: auto;
       padding: 2rem;
       border-radius: 0.25rem;
-      height: 80%;
+      height: 85%;
       width: 80%;
       position: relative;
       margin-right: -50%;

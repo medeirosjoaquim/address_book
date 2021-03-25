@@ -24,8 +24,14 @@ On root folder:
 ```docker build -t addressbook .```
 ```docker run -p 80:80 -d addressbook```
 
-Após, acesse o app em [localhost](http://localhost/)
+The app will be running on [localhost](http://localhost/)
 
-### unit Tests
+### Unit Tests
+
+The unit tests are setup with React Testing Library and run by jest.
+The tests produce an HTML file that can be found in the root folder
+with the name test-report.html.
+
+To run the tests use the command: 
 
 ```yarn test```

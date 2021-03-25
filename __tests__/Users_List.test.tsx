@@ -3,14 +3,14 @@ import { render, waitFor, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { rest } from 'msw'
 import {setupServer} from 'msw/node'
-import {MOCK_API_RESULTS} from '../__mocks__/api_response'
+import {MOCK_API_ONE_RESULT} from '../__mocks__/api_response'
 
 
 import UsersList from '../src/components/users_list/Users_List'
 
 const server = setupServer(
   rest.get('https://randomuser.me/api', (req, res, ctx) => {
-    return res(ctx.json({greeting: 'hello there'}))
+    return res(ctx.json(MOCK_API_ONE_RESULT  ))
   }),
 )
 
@@ -37,7 +37,7 @@ const server = setupServer(
     render(<UsersList />)
     server.use(
       rest.get('https://randomuser.me/api', (_, res, ctx) => {
-        return res(ctx.json(MOCK_API_RESULTS  ))
+        return res(ctx.json(MOCK_API_ONE_RESULT  ))
       })
       )
       const heading = await screen.findByRole('heading')

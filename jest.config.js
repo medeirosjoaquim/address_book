@@ -11,4 +11,10 @@ module.exports = {
     '^.+\\.ts?$': 'ts-jest',
     "^.+\\.(js?)$": "babel-jest"
   },
+  "reporters": [
+    "default",
+    ["./node_modules/jest-html-reporter", {
+      "pageTitle": "Test Report"
+    }]
+  ]
 };

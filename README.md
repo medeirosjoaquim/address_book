@@ -26,26 +26,6 @@ On root folder:
 
 Após, acesse o app em [localhost](http://localhost/)
 
-### e2e Tests 🧪
-
-```npx cypress open```
-
 ### unit Tests
 
-TODO
-
-## Write the DOCS 📚
-
-### app-input:
-
-Props: 
-name:string = adds property `name` to the input component
-label:string = shows a label over the input component
-disclaimer:string  = shows a label below the input component
-currencyMask:boolean = formats the value to currency($BRL) when input loses focus,
-requiredMoneyValue:boolean = validation to make the input valid only with greater then zero values
-maxVal:number = input wont receive values above the maxVal
-
-### app-span:
-
-message: string =defines the text to be shown by the app-span component
+```yarn test```

@@ -3,7 +3,7 @@ import { render, waitFor, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { rest } from 'msw'
 import {setupServer} from 'msw/node'
-
+import {MOCK_API_RESULTS} from '../__mocks__/api_response'
 
 
 import UsersList from '../src/components/users_list/Users_List'
@@ -21,11 +21,12 @@ const server = setupServer(
 
   test('Should show heading "loading..." while theres no data" ', async() => {
     render(<UsersList />)
-    // server.use(
-    //   rest.get('https://randomuser.me/api', (_, res, ctx) => {
-    //     return res(ctx.json({loading: true}))
-    //   })
-    // )
+    server.use(
+      rest.get('https://randomuser.me/api', (_, res, ctx) => {
+      
+        return res(ctx.json({loading: true}))
+      })
+    )
 
  
     const heading = await screen.getByRole('heading')
@@ -36,11 +37,11 @@ const server = setupServer(
     render(<UsersList />)
     server.use(
       rest.get('https://randomuser.me/api', (_, res, ctx) => {
-        return res(ctx.json({loading: true}))
+        return res(ctx.json(MOCK_API_RESULTS  ))
       })
       )
-      const heading = await screen.getByRole('heading')
-    expect(heading).toHaveTextContent('Users List')
+      const scoopImages = await screen.findAllByRole('img', { name: /scoop$/i });
+      expect(scoopImages).toHaveLength(2);
   })
 
   

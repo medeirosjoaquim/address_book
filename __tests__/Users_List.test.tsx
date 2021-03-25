@@ -40,8 +40,8 @@ const server = setupServer(
         return res(ctx.json(MOCK_API_RESULTS  ))
       })
       )
-      const scoopImages = await screen.findAllByRole('img', { name: /scoop$/i });
-      expect(scoopImages).toHaveLength(2);
+      const heading = await screen.findByRole('heading')
+      expect(heading).toHaveTextContent('loading...')
   })
 
   

@@ -1,21 +1,21 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {FaArrowUp} from 'react-icons/fa';
+import React, { useContext, useEffect, useState } from 'react';
+import { FaArrowUp } from 'react-icons/fa';
 
 import './users-list.scss';
-import {baseUrl} from '../../consts/baseUrl';
+import { baseUrl } from '../../consts/baseUrl';
 import UserRow from '../user-row/User_Row';
-import {MainContext} from '../../context/app.context';
-import {filterNationality, filterSearch} from '../../helpers/filters.helpers';
-import {useKeyPress} from '../../hooks/useKeypress';
+import { MainContext } from '../../context/app.context';
+import { filterNationality, filterSearch } from '../../helpers/filters.helpers';
+import { useKeyPress } from '../../hooks/useKeypress';
 import axios from 'axios';
-import {IUser} from '../../models/user.model';
+import { IUser } from '../../models/user.model';
 
 // TODO: use react-virtualized to render list
 
 const UsersList = () => {
   type RequestStatus = 'fetching' | 'fetched' | 'error';
   const [appContext, _] = useContext(MainContext);
-  const [data, setData] = useState<{info: {}; results: IUser[]}>(null);
+  const [data, setData] = useState<{ info: {}; results: IUser[] }>(null);
   const [requestStatus, setRequestStatus] = useState<RequestStatus>(null);
 
   useEffect(() => {
@@ -29,9 +29,8 @@ const UsersList = () => {
           setRequestStatus('fetched');
         }
       })
-      .catch(err => {
+      .catch(() => {
         setRequestStatus('error');
-        console.log(err);
       });
     return () => {
       mounted = false;
@@ -69,6 +68,12 @@ const UsersList = () => {
   }
   return (
     <>
+      {requestStatus === 'error' && (
+        <div className="users-list--container" data-testid="users-list" id="users-list">
+          <h1>There was an error loading the users list. Try again in a few minutes please😊</h1>
+        </div>
+      )}
+
       {requestStatus === 'fetched' && (
         <div className="users-list--container" data-testid="users-list" id="users-list">
           <div className="users-list--container--heading">
@@ -97,11 +102,7 @@ const UsersList = () => {
           <h1>Loading users list...</h1>
         </div>
       )}
-      {requestStatus === 'error' && (
-        <div className="users-list--container" data-testid="users-list" id="users-list">
-          <h1>There was an error loading the users list. Try again in a few minutes please😊</h1>
-        </div>
-      )}
+
     </>
   );
 };

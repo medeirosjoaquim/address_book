@@ -60,42 +60,50 @@ const UsersList = () => {
       userListDiv.scrollTo(0, yPos - 500);
     }
   }, [arrowDown, arrowUp]);
-
-  if (data?.results) {
-    let users = filterNationality(data?.results, appContext.filterNationality);
+  let users = null;
+  if (data) {
+    users = filterNationality(data?.results, appContext.filterNationality);
     users = filterSearch(users, appContext.searchText, appContext.searchKey).sort((a, b) =>
       a.name.first > b.name.first ? 1 : -1
     );
-    return (
-      <div className="users-list--container" data-testid="users-list" id="users-list">
-        <div className="users-list--container--heading">
-          <h1>Users List</h1>
-        </div>
-        {users.map(user => (
-          <UserRow
-            key={user.login.uuid}
-            name={user.name}
-            email={user.email}
-            dob={user.dob}
-            phone={user.phone}
-            login={user.login}
-            location={user.location}
-            nat={user.nat}
-            picture={user.picture}
-          />
-        ))}
-        <div className="fab-btn" onClick={() => scrollUp()}>
-          <FaArrowUp />
-        </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className="users-list--container" data-testid="users-list" id="users-list">
-        <h1>loading...</h1>
-      </div>
-    );
   }
+  return (
+    <>
+      {requestStatus === 'fetched' && (
+        <div className="users-list--container" data-testid="users-list" id="users-list">
+          <div className="users-list--container--heading">
+            <h1>Users List</h1>
+          </div>
+          {users.map(user => (
+            <UserRow
+              key={user.login.uuid}
+              name={user.name}
+              email={user.email}
+              dob={user.dob}
+              phone={user.phone}
+              login={user.login}
+              location={user.location}
+              nat={user.nat}
+              picture={user.picture}
+            />
+          ))}
+          <div className="fab-btn" onClick={() => scrollUp()}>
+            <FaArrowUp />
+          </div>
+        </div>
+      )}
+      {requestStatus === 'fetching' && (
+        <div className="users-list--container" data-testid="users-list" id="users-list">
+          <h1>Loading users list...</h1>
+        </div>
+      )}
+      {requestStatus === 'error' && (
+        <div className="users-list--container" data-testid="users-list" id="users-list">
+          <h1>There was an error loading the users list. Try again in a few minutes please😊</h1>
+        </div>
+      )}
+    </>
+  );
 };
 
 export default UsersList;

@@ -7,7 +7,6 @@ import { MOCK_API_ONE_RESULT } from '../__mocks__/api_response'
 
 
 import UsersList from '../src/components/users_list/Users_List'
-import { act } from 'react-dom/test-utils'
 
 const server = setupServer(
   rest.get('https://randomuser.me/api', (_, res, ctx) => {
@@ -32,7 +31,7 @@ test('Should show heading "Users List" when there is data" ', async () => {
   expect(await findByText('Users List')).toBeInTheDocument()
 })
 
-test('Should show heading "Loading users list..." when there is data" ', () => {
+test('Should show heading "Loading users list..."  while fetching data" ', () => {
   const { getByText } = render(<UsersList />)
   expect(getByText('Loading users list...')).toBeInTheDocument()
 })

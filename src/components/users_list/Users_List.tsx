@@ -62,7 +62,7 @@ const UsersList = () => {
   }, [arrowDown, arrowUp]);
   let users = null;
   if (data) {
-    users = filterNationality(data?.results, appContext.filterNationality);
+    users = filterNationality(data?.results, appContext.filterNationality) || [];
     users = filterSearch(users, appContext.searchText, appContext.searchKey)
       .sort((a, b) => {
         if (a.name.first === b.name.first) {
@@ -73,10 +73,6 @@ const UsersList = () => {
       );
   }
 
-  // if (a.city === b.city) {
-  //    Price is only important when cities are the same
-  //  return b.price - a.price;
-  // }
   return (
     <>
       {requestStatus === 'error' && (

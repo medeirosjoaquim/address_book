@@ -24,6 +24,7 @@ test('App should render main components', () => {
 });
 
 test("Should not show settings if cog icon is not clicked", async() => {
-  const { getByText } = render(<App />)
-    expect(getByText('Settings')).toBeInTheDocument();
+  const { queryByText } = render(<App />)
+  const settings = queryByText('Settings')
+  expect(settings).not.toBeInTheDocument()
 });

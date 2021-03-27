@@ -9,6 +9,7 @@ import { filterNationality, filterSearch } from '../../helpers/filters.helpers';
 import { useKeyPress } from '../../hooks/useKeypress';
 import axios from 'axios';
 import { IUser } from '../../models/user.model';
+import { act } from '@testing-library/react';
 
 // TODO: use react-virtualized to render list
 
@@ -89,7 +90,7 @@ const UsersList = () => {
           <div className="users-list--container--heading">
             <h1>Users List</h1>
           </div>
-          {users.map(user => (
+          { (users.length > 0) ? users.map(user => (
             <UserRow
               key={user.login.uuid}
               name={user.name}
@@ -101,7 +102,7 @@ const UsersList = () => {
               nat={user.nat}
               picture={user.picture}
             />
-          ))}
+          )) : <div><h2>No users match your request.</h2></div>}
           <div className="fab-btn" onClick={() => scrollUp()}>
             <FaArrowUp />
           </div>

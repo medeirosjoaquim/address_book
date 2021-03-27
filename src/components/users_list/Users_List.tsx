@@ -1,22 +1,22 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { FaArrowUp } from 'react-icons/fa';
+import React, {useContext, useEffect, useState} from 'react';
+import {FaArrowUp} from 'react-icons/fa';
 
 import './users-list.scss';
-import { baseUrl } from '../../consts/baseUrl';
+import {baseUrl} from '../../consts/baseUrl';
 import UserRow from '../user-row/User_Row';
-import { MainContext } from '../../context/app.context';
-import { filterNationality, filterSearch } from '../../helpers/filters.helpers';
-import { useKeyPress } from '../../hooks/useKeypress';
+import {MainContext} from '../../context/app.context';
+import {filterNationality, filterSearch} from '../../helpers/filters.helpers';
+import {useKeyPress} from '../../hooks/useKeypress';
 import axios from 'axios';
-import { IUser } from '../../models/user.model';
-import { act } from '@testing-library/react';
+import {IUser} from '../../models/user.model';
+import {act} from '@testing-library/react';
 
 // TODO: use react-virtualized to render list
 
 const UsersList = () => {
   type RequestStatus = 'fetching' | 'fetched' | 'error';
   const [appContext, _] = useContext(MainContext);
-  const [data, setData] = useState<{ info: {}; results: IUser[] }>(null);
+  const [data, setData] = useState<{info: {}; results: IUser[]}>(null);
   const [requestStatus, setRequestStatus] = useState<RequestStatus>(null);
 
   useEffect(() => {
@@ -63,14 +63,12 @@ const UsersList = () => {
   let users = null;
   if (data) {
     users = filterNationality(data?.results, appContext.filterNationality) || [];
-    users = filterSearch(users, appContext.searchText, appContext.searchKey)
-      .sort((a, b) => {
-        if (a.name.first === b.name.first) {
-          return a.name.last > b.name.last ? 1 : -1
-        }
-        return a.name.first > b.name.first ? 1 : -1
+    users = filterSearch(users, appContext.searchText, appContext.searchKey).sort((a, b) => {
+      if (a.name.first === b.name.first) {
+        return a.name.last > b.name.last ? 1 : -1;
       }
-      );
+      return a.name.first > b.name.first ? 1 : -1;
+    });
   }
 
   return (
@@ -86,19 +84,25 @@ const UsersList = () => {
           <div className="users-list--container--heading">
             <h1>Users List</h1>
           </div>
-          { (users.length > 0) ? users.map(user => (
-            <UserRow
-              key={user.login.uuid}
-              name={user.name}
-              email={user.email}
-              dob={user.dob}
-              phone={user.phone}
-              login={user.login}
-              location={user.location}
-              nat={user.nat}
-              picture={user.picture}
-            />
-          )) : <div><h2>No users match your request.</h2></div>}
+          {users.length > 0 ? (
+            users.map(user => (
+              <UserRow
+                key={user.login.uuid}
+                name={user.name}
+                email={user.email}
+                dob={user.dob}
+                phone={user.phone}
+                login={user.login}
+                location={user.location}
+                nat={user.nat}
+                picture={user.picture}
+              />
+            ))
+          ) : (
+            <div>
+              <h2>No users match your request.</h2>
+            </div>
+          )}
           <div className="fab-btn" onClick={() => scrollUp()}>
             <FaArrowUp />
           </div>
@@ -109,7 +113,6 @@ const UsersList = () => {
           <h1>Loading users list...</h1>
         </div>
       )}
-
     </>
   );
 };

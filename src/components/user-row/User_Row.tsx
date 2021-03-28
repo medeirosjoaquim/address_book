@@ -32,12 +32,8 @@ const UserRow = ({name, location, picture, email, dob, login, phone, nat}: IUser
           </div>
           <div className="location--info">
             <div>
-              <span>
-                {location.city} -
-              </span> 
-              <span data-testid="user-row-country">
-              {location.country}
-              </span>
+              <span>{location.city} -</span>
+              <span data-testid="user-row-country">{location.country}</span>
             </div>
           </div>
         </div>

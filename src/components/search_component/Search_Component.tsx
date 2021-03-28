@@ -26,10 +26,12 @@ function SearchComponent() {
     <div className="search-component--container column" data-testid="search">
       <div className="row">
         <div className="input-field">
-          <input placeholder="Search" 
-            onChange={e => handleInputChange(e.target.value)} 
+          <input
+            placeholder="Search"
+            onChange={e => handleInputChange(e.target.value)}
             id="search-input"
-            data-testid="search-input" />
+            data-testid="search-input"
+          />
         </div>
         <Select
           isSearchable={false}

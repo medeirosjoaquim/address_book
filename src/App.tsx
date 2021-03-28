@@ -14,6 +14,7 @@ export default function App() {
     searchKey: 'name',
     searchText: '',
     userDetails: null,
+    results: null
   });
 
   return (

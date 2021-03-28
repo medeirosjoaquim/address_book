@@ -11,7 +11,6 @@ export const filterNationality = (users: IUser[], natArray: string[]): IUser[] =
 
 export const filterSearch = (users: IUser[], searchText: string, searchKey = 'name'): IUser[] => {
   searchText = removeDiacritics(searchText.toLowerCase()).replace(/\s/g, '');
-  console.log(searchText)
   if (searchText.length < 1) {
     return users;
   } else {

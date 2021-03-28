@@ -29,7 +29,7 @@ test("Should not show settings if cog icon is not clicked", async() => {
   expect(settings).not.toBeInTheDocument()
 });
 
-test("Should show settings if cog icon is clicked", async() => {
+test("Should show settings if cog icon is clicked", () => {
   const { queryByText } = render(<App />)
   const settingsBtn = screen.getByTestId('settings-btn')
   fireEvent.click(settingsBtn)

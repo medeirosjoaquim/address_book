@@ -33,6 +33,7 @@ const Settings = () => {
                     type="checkbox"
                     onChange={e => handleCheckbox(key, e.target.checked)}
                     defaultChecked={false}
+                    data-testid={`settings-option-${key}`}
                   />
                   <span>{key}</span>
                 </div>

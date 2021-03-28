@@ -13,18 +13,13 @@ const server = setupServer(
     return res(ctx.json(MOCK_API_ONE_RESULT))
   }),
 )
-beforeAll(() => server.listen())
 
+beforeAll(() => server.listen())
 afterEach(() => {
   server.resetHandlers()
   server.restoreHandlers()
 })
-
 afterAll(() => server.close())
-
-
-
-
 
 test('Should show heading "Users List" when there is data" ', async () => {
   const { findByText } = render(<UsersList />)

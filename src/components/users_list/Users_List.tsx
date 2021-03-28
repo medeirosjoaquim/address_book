@@ -70,7 +70,6 @@ const UsersList = () => {
       return a.name.first > b.name.first ? 1 : -1;
     });
   }
-
   return (
     <>
       {requestStatus === 'error' && (

@@ -25,10 +25,10 @@ const UserRow = ({name, location, picture, email, dob, login, phone, nat}: IUser
         </div>
         <div className="col-2 user-row--container-info">
           <div className="name--info">
-            <span>{name.first + ' ' + name.last}</span>
+            <div>{name.first + ' ' + name.last}</div>
           </div>
           <div className="mail--info">
-            <span>{email}</span>
+            <div>{email}</div>
           </div>
           <div className="location--info">
             <div>

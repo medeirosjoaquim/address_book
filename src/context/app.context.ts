@@ -8,12 +8,11 @@ export interface IMainState {
   searchKey: string;
   filterNationality: string[];
   userDetails: UserDetails | null;
-  results: IUser[]
 }
 
 type MainState = [IMainState, (value: IMainState) => void];
 
 export const MainContext = React.createContext<MainState>([
-  {showSettings: false, filterNationality: [], searchKey: '', searchText: '', userDetails: null, results: null},
+  {showSettings: false, filterNationality: [], searchKey: '', searchText: '', userDetails: null},
   (value: IMainState) => {},
 ]);

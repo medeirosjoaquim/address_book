@@ -31,9 +31,8 @@ const Settings = () => {
                   <input
                     style={{marginRight: 12}}
                     type="checkbox"
-                    checked={appContext.filterNationality.includes(key)}
                     onChange={e => handleCheckbox(key, e.target.checked)}
-                    defaultChecked={false}
+                    defaultChecked={appContext.filterNationality.includes(key)}
                     data-testid={`settings-option-${key}`}
                   />
                   <span>{key}</span>

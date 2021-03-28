@@ -9,12 +9,14 @@ import {filterNationality, filterSearch} from '../../helpers/filters.helpers';
 import {useKeyPress} from '../../hooks/useKeypress';
 import axios from 'axios';
 import {IUser} from '../../models/user.model';
+import {act} from '@testing-library/react';
 
 // TODO: use react-virtualized to render list
 
 const UsersList = () => {
   type RequestStatus = 'fetching' | 'fetched' | 'error';
-  const [appContext, setAppContext] = useContext(MainContext);
+  const [appContext, _] = useContext(MainContext);
+  const [data, setData] = useState<{info: {}; results: IUser[]}>(null);
   const [requestStatus, setRequestStatus] = useState<RequestStatus>(null);
 
   useEffect(() => {
@@ -24,16 +26,7 @@ const UsersList = () => {
       .get(baseUrl)
       .then(response => {
         if (mounted) {
-          let users
-          users = filterNationality(response.data?.results, appContext.filterNationality) || [];
-          users = filterSearch(users, appContext.searchText, appContext.searchKey).sort((a, b) => {
-            if (a.name.first === b.name.first) {
-              return a.name.last > b.name.last ? 1 : -1;
-            }
-            return a.name.first > b.name.first ? 1 : -1;
-          });
-          console.log(users)
-          setAppContext({...appContext, results: users})
+          setData(response.data);
           setRequestStatus('fetched');
         }
       })
@@ -43,7 +36,7 @@ const UsersList = () => {
     return () => {
       mounted = false;
     };
-  }, [appContext.searchText]);
+  }, []);
 
   const scrollUp = () => {
     const userListDiv = document.getElementById('users-list');
@@ -67,16 +60,16 @@ const UsersList = () => {
       userListDiv.scrollTo(0, yPos - 500);
     }
   }, [arrowDown, arrowUp]);
-  // let users = null;
-  // if (data) {
-  //   users = filterNationality(data?.results, appContext.filterNationality) || [];
-  //   users = filterSearch(users, appContext.searchText, appContext.searchKey).sort((a, b) => {
-  //     if (a.name.first === b.name.first) {
-  //       return a.name.last > b.name.last ? 1 : -1;
-  //     }
-  //     return a.name.first > b.name.first ? 1 : -1;
-  //   });
-  // }
+  let users = null;
+  if (data) {
+    users = filterNationality(data?.results, appContext.filterNationality) || [];
+    users = filterSearch(users, appContext.searchText, appContext.searchKey).sort((a, b) => {
+      if (a.name.first === b.name.first) {
+        return a.name.last > b.name.last ? 1 : -1;
+      }
+      return a.name.first > b.name.first ? 1 : -1;
+    });
+  }
   return (
     <>
       {requestStatus === 'error' && (
@@ -90,8 +83,8 @@ const UsersList = () => {
           <div className="users-list--container--heading">
             <h1>Users List</h1>
           </div>
-          {appContext?.results?.length > 0 ? (
-            appContext?.results?.map(user => (
+          {users.length > 0 ? (
+            users.map(user => (
               <UserRow
                 key={user.login.uuid}
                 name={user.name}

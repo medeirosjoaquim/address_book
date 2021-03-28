@@ -21,58 +21,13 @@ afterEach(() => {
 
 afterAll(() => server.close())
 
-test('Should all nationality settings checkbox when click on settings button" ', async () => {
-  const { getByText } = render(<App />)
-  const settingsBtn = screen.getByTestId('settings-btn')
-  fireEvent.click(settingsBtn)
-  const chNationality = screen.getByTestId('settings-option-CH')
-  const esNationality = screen.getByTestId('settings-option-ES')
-  const frNationality = screen.getByTestId('settings-option-FR')
-  const gbNationality = screen.getByTestId('settings-option-GB')
-  const deNationality = screen.getByTestId('settings-option-DE')
-  const brNationality = screen.getByTestId('settings-option-BR')
-  const settings = getByText('Settings')
-  expect(settings).toBeInTheDocument()
-  expect(chNationality).toBeInTheDocument()
-  expect(esNationality).toBeInTheDocument()
-  expect(frNationality).toBeInTheDocument()
-  expect(gbNationality).toBeInTheDocument()
-  expect(deNationality).toBeInTheDocument()
-  expect(brNationality).toBeInTheDocument()
-})
+//Aaliyah Patel
 
-
-test('Should only have users from Switzerland when CH is selected on settings" ', async () => {
-  const { findAllByTestId } = render(<App />)
-  const settingsBtn = screen.getByTestId('settings-btn')
-  fireEvent.click(settingsBtn)
-  const chNationality = screen.getByTestId('settings-option-CH')
-  fireEvent.click(chNationality)
-  fireEvent.click(settingsBtn)
-  const usersNationalities = await findAllByTestId('user-row-country')
-  const nationalitiesArray: string[] = [];
-  usersNationalities.forEach(element => {
-    nationalitiesArray.push(getNodeText(element))
-  });
-  const [filteredNationalityCountry] = Array.from(new Set(nationalitiesArray))
-  expect(filteredNationalityCountry).toEqual('Switzerland')
-})
 
 test('Should only have users from Switzerland and United Kingdom when CH and UK are selected" ', async () => {
-  const { findAllByTestId } = render(<App />)
-  const settingsBtn = screen.getByTestId('settings-btn')
-  fireEvent.click(settingsBtn)
-  const chNationality = screen.getByTestId('settings-option-CH')
-  const gbNationality = screen.getByTestId('settings-option-GB')
-  fireEvent.click(gbNationality)
-  fireEvent.click(chNationality)
-  //fireEvent.click(settingsBtn)
-  const usersNationalities = await findAllByTestId('user-row-country')
-  const nationalitiesArray: string[] = [];
-  usersNationalities.forEach(element => {
-    nationalitiesArray.push(getNodeText(element))
-  });
+  render(<App />)
+  const input = screen.getByLabelText("Some Label")
+  const searchInput = screen.getByTestId('search-input')
+  fireEvent.change(input, { target: { value: 'Aaliyah Patel' } })
 
-  const filteredNationalityCountry = Array.from(new Set(nationalitiesArray))
-  expect(filteredNationalityCountry).toEqual(["United Kingdom", "Switzerland"])
 })

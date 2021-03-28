@@ -66,7 +66,6 @@ test('Should only have users from Switzerland and United Kingdom when CH and UK 
   const gbNationality = screen.getByTestId('settings-option-GB')
   fireEvent.click(gbNationality)
   fireEvent.click(chNationality)
-  //fireEvent.click(settingsBtn)
   const usersNationalities = await findAllByTestId('user-row-country')
   const nationalitiesArray: string[] = [];
   usersNationalities.forEach(element => {

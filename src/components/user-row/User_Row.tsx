@@ -27,7 +27,7 @@ const UserRow = ({name, location, picture, email, dob, login, phone, nat}: IUser
           <div className="name--info">
             <div>{name.first + ' ' + name.last}</div>
           </div>
-          <div className="mail--info">
+          <div className="mail--info mb-1">
             <div>{email}</div>
           </div>
           <div className="location--info">

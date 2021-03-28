@@ -12,8 +12,9 @@
     color: $primary;
     align-items: center;
     width: 100%;
-    height: 6rem;
+    height: 5rem;
     margin: 0.25rem;
+    
     .avatar {
       padding: 1rem 0.5rem;
       img {
@@ -21,10 +22,9 @@
       }
     }
     &-info {
-      padding-left: 0.5rem;
+      align-items: center;
       display: flex;
       flex-direction: column;
-      align-items: start;
       .name--info {
         text-align: center;
         width: 100%;

@@ -10,7 +10,8 @@ export const filterNationality = (users: IUser[], natArray: string[]): IUser[] =
 };
 
 export const filterSearch = (users: IUser[], searchText: string, searchKey = 'name'): IUser[] => {
-  searchText = removeDiacritics(searchText.toLowerCase());
+  searchText = removeDiacritics(searchText.toLowerCase()).replace(/\s/g, '');
+  console.log(searchText)
   if (searchText.length < 1) {
     return users;
   } else {
@@ -19,7 +20,9 @@ export const filterSearch = (users: IUser[], searchText: string, searchKey = 'na
         return users.filter(
           user =>
             removeDiacritics(user.name.first.toLowerCase()).includes(searchText) ||
-            removeDiacritics(user.name.last.toLowerCase()).includes(searchText)
+            removeDiacritics(user.name.last.toLowerCase()).includes(searchText) ||
+            `${removeDiacritics(`${user.name.first.toLowerCase()}${user.name.last.toLowerCase()}`)}`
+            .replace(/\s/g, '').includes(searchText)
         );
       case 'address':
         return users.filter(

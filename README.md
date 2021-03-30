@@ -14,7 +14,7 @@ Check it online 👉 [here](https://stoic-shannon-2216c1.netlify.app/)
 ### Build dev
 ```yarn build:dev```
 
-### Build dev
+### Build prod
 ```yarn build:prod```
 
 ### Using Docker 🐋
